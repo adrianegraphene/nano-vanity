@@ -1,3 +1,14 @@
+extern crate blake2;
+extern crate byteorder;
+extern crate clap;
+extern crate digest;
+extern crate hex;
+extern crate num_cpus;
+extern crate rand;
+extern crate curve25519_dalek;
+extern crate ocl;
+
+
 use std::f64;
 use std::iter;
 use std::process;
@@ -7,17 +18,8 @@ use std::sync::Arc;
 use std::thread;
 use std::time::{Duration, Instant};
 
-extern crate curve25519_dalek;
 use curve25519_dalek::edwards::CompressedEdwardsY;
 
-extern crate blake2;
-extern crate byteorder;
-extern crate clap;
-extern crate digest;
-extern crate hex;
-extern crate num_cpus;
-
-extern crate rand;
 use rand::rngs::OsRng;
 use rand::RngCore;
 
@@ -28,7 +30,6 @@ extern crate num_traits;
 use num_traits::{ToPrimitive, Zero};
 
 #[cfg(feature = "gpu")]
-extern crate ocl;
 
 mod derivation;
 use derivation::{pubkey_to_address, secret_to_pubkey, GenerateKeyType, ADDRESS_ALPHABET};

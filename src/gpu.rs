@@ -1,5 +1,14 @@
 use derivation::GenerateKeyType;
 use pubkey_matcher::PubkeyMatcher;
+use ocl;
+use ocl::builders::DeviceSpecifier;
+use ocl::builders::ProgramBuilder;
+use ocl::flags::MemFlags;
+use ocl::Buffer;
+use ocl::Platform;
+use ocl::ProQue;
+use ocl::Result;
+
 
 #[cfg(feature = "gpu")]
 pub use gpu_impl::Gpu;
@@ -15,7 +24,12 @@ pub struct GpuOptions<'a> {
 }
 
 #[cfg(not(feature = "gpu"))]
-pub struct Gpu;
+pub struct Gpu {
+    kernel: ocl::Kernel,
+    attempt: Buffer<u8>,
+    result: Buffer<u8>,
+    root: Buffer<u8>,
+}
 
 #[cfg(not(feature = "gpu"))]
 impl Gpu {
