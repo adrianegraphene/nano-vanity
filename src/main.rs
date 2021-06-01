@@ -153,8 +153,10 @@ fn main() {
                 .help("The number of threads to use [default: number of cores minus one]"),
         ).arg(
             clap::Arg::with_name("gpu")
-                .short("g")
+                .short("a")
                 .long("gpu")
+                .value_name("PLATFORM:DEVICE:THREADS")
+                .multiple(true)
                 .help("Enable use of the GPU through OpenCL"),
         ).arg(
             clap::Arg::with_name("limit")
@@ -167,7 +169,7 @@ fn main() {
             clap::Arg::with_name("gpu_threads")
                 .long("gpu-threads")
                 .value_name("N")
-                .default_value("1048576")
+                .default_value("64")
                 .help("The number of GPU threads to use"),
         ).arg(
             clap::Arg::with_name("gpu_local_work_size")
