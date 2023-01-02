@@ -264,7 +264,7 @@ dependencies = [
  "num-bigint 0.1.43 (registry+https://github.com/rust-lang/crates.io-index)",
  "num-traits 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "num_cpus 1.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ocl 0.19.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ocl 0.19.3 (registry+https://github.com/rust-lang/crates.io-index)", optional-true,
  "rand 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
